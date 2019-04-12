@@ -14,12 +14,6 @@
 
 namespace two
 {
-	enum ShaderOptionShadow : unsigned int
-	{
-		SHADOWS,
-		CSM_BLEND,
-	};
-
 	enum ShaderModeShadow : unsigned int
 	{
 		PCF_LEVEL,

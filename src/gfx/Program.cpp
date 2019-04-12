@@ -240,19 +240,19 @@ namespace two
 		, m_compute(compute)
 		, m_impl(make_unique<Impl>())
 	{
-		static string options[] = { "INSTANCING", "BILLBOARD", "SKELETON", "MORPHTARGET", "QNORMALS", "VFLIP", "MRT", "DEFERRED", "CLUSTERED" };
+		static string options[] = { "INSTANCING", "SKELETON", "MORPHTARGET" };
 		this->register_options(0, options);
 
 		this->set_block(MaterialBlock::Base);
 
 		if constexpr(ZONES_BUFFER)
-			m_defines.push_back({ "ZONES_BUFFER" , "" });
+			m_defines.push_back({ "ZONES_BUFFER", "" });
 
 		if constexpr(LIGHTS_BUFFER)
-			m_defines.push_back({ "LIGHTS_BUFFER" , "" });
+			m_defines.push_back({ "LIGHTS_BUFFER", "" });
 
 		if constexpr(MATERIALS_BUFFER)
-			m_defines.push_back({ "MATERIALS_BUFFER" , "" });
+			m_defines.push_back({ "MATERIALS_BUFFER", "" });
 	}
 
 	Program::~Program()
@@ -260,22 +260,7 @@ namespace two
 
 	void Program::set_block(MaterialBlock type, bool enabled)
 	{
-		static table<MaterialBlock, ShaderBlock*> shader_blocks =
-		{ {
-			&MaterialBase::s_block,
-			&MaterialAlpha::s_block,
-			&MaterialSolid::s_block,
-			&MaterialPoint::s_block,
-			&MaterialLine::s_block,
-			&MaterialLit::s_block,
-			&MaterialPbr::s_block,
-			&MaterialPhong::s_block,
-			&MaterialFresnel::s_block,
-			&MaterialUser::s_block,
-		} };
-
 		m_blocks[type] = enabled;
-		this->register_block(*shader_blocks[type]);
 	}
 
 	void Program::set_blocks(span<MaterialBlock> blocks)

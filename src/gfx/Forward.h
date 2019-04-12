@@ -44,8 +44,6 @@ namespace two
     enum class EmitterFlow : unsigned int;
     enum class PrefabType : unsigned int;
     enum IsometricAngle : unsigned int;
-    enum ShaderOptionResolve : unsigned int;
-    enum ShaderOptionFilter : unsigned int;
     enum class LightType : unsigned int;
     enum ShadowFlags : unsigned int;
     enum class ItemShadow : unsigned int;

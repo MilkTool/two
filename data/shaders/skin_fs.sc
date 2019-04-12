@@ -4,6 +4,7 @@ $input v_view, v_position, v_normal, v_tangent, v_color, v_uv0, v_uv1, v_binorma
 #include <pbr/light.sh>
 #include <pbr/light_brdf_three.sh>
 #include <pbr/radiance.sh>
+#include <gi/conetrace.sh>
 #define s_blur1 s_user0
 #define s_blur2 s_user1
 #define s_blur3 s_user2
@@ -47,7 +48,12 @@ float specularWeight = KS_Skin_Specular(fragment.normal, l, fragment.view, rough
 specular += energy * mat.phong.specular * specularWeight;
 #endif
 }
+float env_brdf_miplevel_skin(SkinMaterial mat)
+{
+return env_specular_miplevel_phong(mat.phong);
+}
 #define direct_brdf direct_skin
+#define env_brdf_miplevel env_brdf_miplevel_skin
 void main() {
 #include <pbr/fs_fragment.sh>
 #include <pbr/fs_phong_material.sh>

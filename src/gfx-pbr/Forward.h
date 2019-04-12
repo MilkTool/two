@@ -19,7 +19,6 @@ namespace two
     enum ShaderOptionShadow : unsigned int;
     enum ShaderModeShadow : unsigned int;
     enum ShadowFilterMode : unsigned int;
-    enum ShaderOptionBlur : unsigned int;
     enum ShaderOptionDofBlur : unsigned int;
     enum ShaderOptionGlow : unsigned int;
     enum TonemapShaderOption : unsigned int;

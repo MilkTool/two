@@ -166,8 +166,6 @@ namespace two
 
 	void UiRenderer::render(Layer& target, uint16_t view, float pixel_ratio, const Colour& colour)
 	{
-		this->log_FPS();
-
 		m_debug_batch = 0;
 		static size_t prevBatch = 0;
 
@@ -477,22 +475,5 @@ namespace two
 		}
 		if(inkstyle.m_border_width.x > 0.f)
 			vg.stroke({ inkstyle.m_background_colour, inkstyle.m_border_colour, inkstyle.m_border_width.x });
-	}
-
-	void UiRenderer::log_FPS()
-	{
-		static size_t frames = 0;
-		static double prevtime;
-
-		double time = m_clock.read();
-		if(time - prevtime >= 4.f)
-		{
-			printf("[info] frame %.2f\n", ((time - prevtime) / frames) * 1000.f);
-			printf("[info] fps %f\n", (frames / (time - prevtime)));
-			prevtime = time;
-			frames = 0;
-		}
-
-		++frames;
 	}
 }

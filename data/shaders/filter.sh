@@ -24,6 +24,10 @@ uniform vec4 u_source_levels;
 #define u_source_2_level int(u_source_levels.z)
 #define u_source_3_level int(u_source_levels.w)
 
+uniform vec4 u_source_opts;
+#define u_source_depth bool(u_source_opts.x)
+#define u_unpack_depth bool(u_source_opts.y)
+
 uniform vec4 u_filter_p0;
 #define u_multiply u_filter_p0.x
 

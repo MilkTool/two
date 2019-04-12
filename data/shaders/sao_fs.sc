@@ -59,8 +59,8 @@ void main() {
 	}
 	vec3 position = getViewPosition(v_uv0, depth);
 	// precompute some variables require in getOcclusion.
-	float scaleDividedByCameraFar = u_scale / u_z_far;
-	float minResolutionMultipliedByCameraFar = u_minResolution * u_z_far;
+	float scaleDividedByCameraFar = u_scale / u_far;
+	float minResolutionMultipliedByCameraFar = u_minResolution * u_far;
 	vec3 normal = getViewNormal(position, v_uv0);
 	// jsfiddle that shows sample pattern: https://jsfiddle.net/a16ff1p7/
 	float angle = rand(v_uv0 + u_seed) * PI2;

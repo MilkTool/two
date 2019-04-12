@@ -6,12 +6,13 @@
     mat4 modelView = u_modelView;
 #endif
 
-#ifdef BILLBOARD
-    modelView[0] = vec4(1.0, 0.0, 0.0, modelView[0][3]);
-    modelView[1] = vec4(0.0, 1.0, 0.0, modelView[1][3]);
-    modelView[2] = vec4(0.0, 0.0, 1.0, modelView[2][3]);
-#endif
-
+    if(u_billboard)
+    {
+        modelView[0] = vec4(1.0, 0.0, 0.0, modelView[0][3]);
+        modelView[1] = vec4(0.0, 1.0, 0.0, modelView[1][3]);
+        modelView[2] = vec4(0.0, 0.0, 1.0, modelView[2][3]);
+    }
+    
 #ifdef SKELETON
     highp mat4 skeleton = skeleton_matrix(s_skeleton, ivec4(a_indices), a_weight);
 	modelView = mul(modelView, skeleton);

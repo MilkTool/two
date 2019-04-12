@@ -25,7 +25,12 @@ float scatteringDot = pow(saturate(dot(fragment.view, -scatteringHalf)), power) 
 vec3 scatteringIllu = (scatteringDot + ambient) * thickness;
 diffuse += scatteringIllu * attenuation * energy;
 }
+float env_brdf_miplevel_scatter(TranslucentMaterial mat)
+{
+return env_specular_miplevel_phong(mat.phong);
+}
 #define direct_brdf direct_scatter
+#define env_brdf_miplevel env_brdf_miplevel_scatter
 void main()
 {
 #include <pbr/fs_fragment.sh>

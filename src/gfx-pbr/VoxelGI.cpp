@@ -351,9 +351,7 @@ namespace gfx
 
 	BlockGITrace::BlockGITrace(GfxSystem& gfx)
 		: DrawBlock(gfx, type<BlockGITrace>())
-	{
-		m_options = { "GI_CONETRACE" };
-	}
+	{}
 
 	void BlockGITrace::init_block()
 	{
@@ -370,7 +368,7 @@ namespace gfx
 		for(GIProbe* gi_probe : render.m_shot.m_gi_probes)
 			if(gi_probe->m_enabled)
 			{
-				program.set_option(m_index, GI_CONETRACE, true);
+				//program.set_option(m_index, GI_CONETRACE, true);
 			}
 	}
 
