@@ -464,9 +464,9 @@ namespace two
 	{
 		MaterialBlockPhong() {}
 		MaterialBlockPhong(GfxSystem& gfx)
-			: u_phong_modes(bgfx::createUniform("u_pbr_modes", bgfx::UniformType::Vec4, 1U, bgfx::UniformSet::Group))
-			, u_phong_opts0(bgfx::createUniform("u_pbr_opts0", bgfx::UniformType::Vec4, 1U, bgfx::UniformSet::Group))
-			, u_phong_opts1(bgfx::createUniform("u_pbr_opts1", bgfx::UniformType::Vec4, 1U, bgfx::UniformSet::Group))
+			: u_phong_modes(bgfx::createUniform("u_phong_modes", bgfx::UniformType::Vec4, 1U, bgfx::UniformSet::Group))
+			, u_phong_opts0(bgfx::createUniform("u_phong_opts0", bgfx::UniformType::Vec4, 1U, bgfx::UniformSet::Group))
+			, u_phong_opts1(bgfx::createUniform("u_phong_opts1", bgfx::UniformType::Vec4, 1U, bgfx::UniformSet::Group))
 			, s_diffuse(bgfx::createUniform("s_diffuse", bgfx::UniformType::Sampler, 1U, bgfx::UniformSet::View))
 			, s_specular(bgfx::createUniform("s_specular", bgfx::UniformType::Sampler, 1U, bgfx::UniformSet::View))
 			, s_shininess(bgfx::createUniform("s_shininess", bgfx::UniformType::Sampler, 1U, bgfx::UniformSet::View))
