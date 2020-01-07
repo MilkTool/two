@@ -513,7 +513,7 @@ namespace two
 			LightmapItem& binding = *item.m_lightmaps[elem.m_index];
 			if(binding.m_lightmap->valid())
 			{
-				program.set_option(MaterialLit::s_block.m_index, LIGHTMAP);
+				//program.set_option(MaterialLit::s_block.m_index, LIGHTMAP);
 			}
 		}
 	}
